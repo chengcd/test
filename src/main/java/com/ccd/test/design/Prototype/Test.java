@@ -6,6 +6,7 @@ import java.io.IOException;
  * Created by ccd on 2017/12/4.
  */
 public class Test {
+    //要实现深复制，需要采用流的形式读入当前对象的二进制输入，再写出二进制数据对应的对象。
     public static void main(String[] args) throws CloneNotSupportedException, IOException, ClassNotFoundException {
         Prototype m = new Prototype();
         m.setString("1212");
