@@ -1,6 +1,8 @@
 package com.ccd.test.design.Flyweight;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Vector;
 
 /**
@@ -33,6 +35,19 @@ import java.util.Vector;
  * 看下数据库连接池代码：
  *
  *
+ *
+ *  通过连接池的管理，实现了数据库连接的共享，不需要每一次都重新创建连接，节省了数据库重新创建的开销，
+ *  提升了系统的性能！本章讲解了7中结构型模式，因为篇幅的问题，剩下的11种行为模式，
+ *  本章是关于设计模式的最后一讲，会讲到第三种设计模式----行为型模式 : 共11种：策略模式、模板方法模式、观察者模式
+ *  、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式。这段时间一直都在写
+ *  关于设计模式的东西，终于写到一半了，写博文是个很费事费时的东西，因为我得为读者负责，不论是图还是代码还是表述，都希望
+ *  能尽量写清楚，以便读者理解，我想不论是我还是读者，都希望看到高质量的博文出来，从我本人出发，我会一直坚持下去，不
+ *  端更新，源源动力来自于读者们的不断支持，我会尽自己的努力，写好每一篇文章！希望大家能给我提出一件和建议，共同大众完美的博文！
+ *
+ *
+ *
+ *
+ *
  */
 public class ConnectionPool {
    private Vector<Connection> pool;
@@ -48,18 +63,55 @@ public class ConnectionPool {
    private static ConnectionPool instance = null;
    Connection conn = null;
 
-   private ConnectionPool(){}
+   /**
+    * 构造方法，做一些初始化工作
+    */
+   private ConnectionPool() {
+      pool = new Vector<Connection>(poolSize);
 
+      for (int i = 0; i < poolSize; i++) {
+         try {
+            Class.forName(driverClassName);
+         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+         }
+         try {
+            conn = DriverManager.getConnection(url, username, passowrd);
+         } catch (SQLException e) {
+            e.printStackTrace();
+         }
+         pool.add(conn);
 
+      }
+   }
 
+   public synchronized  void release(){
+         pool.add(conn);
+   }
 
+   public synchronized Connection getConn(){
+      if(pool.size()>0){
+         Connection conn = pool.get(0);
+         pool.remove(conn);
+         return conn;
 
-
-
-
-
-
-
+      }else{
+         return null;
+      }
+   }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
