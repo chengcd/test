@@ -3,7 +3,7 @@ package com.ccd.test.testparentSon;
 /**
  * Created by ccd on 2017/12/13.
  */
-public class Animal {
+public abstract class Animal {
     private String color;
     private int foot;
 
