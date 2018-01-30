@@ -220,30 +220,33 @@ public class RSACoder {
     public static void main(String[] args) throws Exception {
         Map<String,Key> ck = initKey();
 
-       String m =  getPublicKey(ck);
-        System.out.println(m);
-
-        String kkk =getPrivateKey(ck);
-        System.out.println(kkk);
-
-        String prpu = "woshishui";
-
-        byte[] mdd = encryptByPrivateKey(prpu.getBytes(),getPrivateKey(ck));
-
-        byte[] mdds =  decryptByPublicKey(mdd,getPublicKey(ck));
-        System.out.println(new String(mdds));
-
-
-        byte[] mddpx = encryptByPublicKey(prpu,getPublicKey(ck));
-
-        byte[] mddspxx =  decryptByPrivateKey(mddpx,getPrivateKey(ck));
-        System.out.println(new String(mddspxx));
 
 
 
-       String kkc =  sign(prpu.getBytes(),getPrivateKey(ck));
-       boolean kk = verify("dsdds".getBytes(),getPublicKey(ck),kkc);
-        System.out.println(kk);
+//       String m =  getPublicKey(ck);
+//        System.out.println(m);
+//
+//        String kkk =getPrivateKey(ck);
+//        System.out.println(kkk);
+//
+//        String prpu = "woshishui";
+//
+//        byte[] mdd = encryptByPrivateKey(prpu.getBytes(),getPrivateKey(ck));
+//
+//        byte[] mdds =  decryptByPublicKey(mdd,getPublicKey(ck));
+//        System.out.println(new String(mdds));
+//
+//
+//        byte[] mddpx = encryptByPublicKey(prpu,getPublicKey(ck));
+//
+//        byte[] mddspxx =  decryptByPrivateKey(mddpx,getPrivateKey(ck));
+//        System.out.println(new String(mddspxx));
+//
+//
+//
+//       String kkc =  sign(prpu.getBytes(),getPrivateKey(ck));
+//       boolean kk = verify("dsdds".getBytes(),getPublicKey(ck),kkc);
+//        System.out.println(kk);
 
 
 
