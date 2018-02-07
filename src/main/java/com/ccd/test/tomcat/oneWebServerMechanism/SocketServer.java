@@ -15,6 +15,9 @@ public class SocketServer {
         try {
             serverSocket = new ServerSocket(8056);
             Socket socket = serverSocket.accept();
+
+
+
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
             DataInputStream dis = new DataInputStream(socket.getInputStream());
 
