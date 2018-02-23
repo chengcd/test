@@ -27,4 +27,9 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.age == ((Person)obj).getAge();
+    }
 }

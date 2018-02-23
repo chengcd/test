@@ -29,7 +29,12 @@ public class TestMain {
         }*/
 
         Person person = new Person("luoxn28", 23);
+
+        Person person1 = new Person("luoxn28", 23);
         Class clazz = person.getClass();
+        System.out.println(person.equals(person1));
+        System.out.println(person.hashCode()+"===="+person1.hashCode());
+
 
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
