@@ -1,5 +1,9 @@
 package com.ccd.test.bigcout;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
+import java.math.BigInteger;
+
 /**
  * Created by ccd on 2018/2/23.
  *
@@ -120,6 +124,41 @@ package com.ccd.test.bigcout;
  */
 public class Bigcount {
     public static void main(String[] args) {
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Short.MAX_VALUE);
+        BigInteger a=new BigInteger("20");
+        BigInteger b=new BigInteger("30");
+        System.out.println(a.max(b));
+
+
+        System.out.println(8e-2);
+        double ck = 1.0/10;
+        double kk = 0.1/1;
+        float kkk = 0.1f;
+
+        System.out.println(ck);
+        char kkk1 = '}';
+        char kkk11 = '\'';
+        System.out.println((char)kkk11);
+
+        System.out.println('嘟'+'\'');
+        System.out.println(((char)kkk1)+100);
+        boolean bdd = false;
+        System.out.println(bdd=true);
+
+        int p = 111100;
+        char j = (char)p;
+        short c = (short)p;
+        System.out.println(j);
+        char fkk = 'ﾜ';
+        System.out.println(fkk+1);
+        System.out.println(256*256);
+        System.out.println(c);
+
+        int money =1000000000;
+        int year =200;
+        int total = money*year; //返回的是负数
+        System.out.println(total);
 
     }
 }
