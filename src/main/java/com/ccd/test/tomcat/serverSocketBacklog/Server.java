@@ -8,7 +8,7 @@ import java.net.Socket;
 public class Server {
 
     private int port = 8000;
-    private int server_num = 3;
+    private int server_num = 16;
     private static ServerSocket serverSocket;
 
     public Server() throws IOException {
@@ -21,6 +21,7 @@ public class Server {
             Socket socket = null;
             try {
                 socket = serverSocket.accept();
+                socket.setKeepAlive(true);
                 System.out.println("new connection is completed " + socket.getInetAddress() + ":" + socket.getPort());
             } catch(IOException e) {
                 e.printStackTrace();

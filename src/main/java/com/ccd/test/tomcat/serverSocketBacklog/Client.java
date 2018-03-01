@@ -20,9 +20,9 @@ public class Client {
             System.out.println("the " + (i+1) + "connection is successful");
         }
 
-        Thread.sleep(3000);
-        for(int i = 0; i < length; i++) {
+        //Thread.sleep(3000);
+       /* for(int i = 0; i < length; i++) {
             sockets[i].close();
-        }
+        }*/
     }
 }
